@@ -8,10 +8,10 @@ require_once('TwitterAPIExchange.php');
 
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 $settings = array(
-    'oauth_access_token' => "2800677829-kY3elqM71dH7MJNvZfJzhBOoS4MPf6A387Vy8AV",
-    'oauth_access_token_secret' => "hbLL7ihvw3A6KKHmKjUyHuFSaRrjeRf4dnmbBgwZKfamb",
-    'consumer_key' => "Wt0LSGqyHhHK4U5ATSP3PdFD4",
-    'consumer_secret' => "JSJjyPOIL3E9AZXssCHiVW2rX68n1rkjd2EuRfXrmDR6yIXRBE"
+    'oauth_access_token' => "",
+    'oauth_access_token_secret' => "",
+    'consumer_key' => "",
+    'consumer_secret' => ""
 );
 
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
