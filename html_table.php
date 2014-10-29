@@ -13,8 +13,9 @@
 	
 	class html_table{
 
-		public static $timeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends','Listed'];
-
+		public static $timeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];
+		public static $followers_labels = ['Name','Screen name'];
+		
 		public static function prTimeline($getfield, $string){
 
 				echo '<table border="1"><tr>';
@@ -31,13 +32,31 @@
 					$tbl .= '<td>' . $items['user']['screen_name'] . '</td>';
 					$tbl .= '<td>' . $items['user']['followers_count'] . '</td>';
 					$tbl .= '<td>' . $items['user']['friends_count'] . '</td>';
-					$tbl .= '<td>' . $items['user']['listed_count'] . '</td>';
 					$tbl .= '</tr>';
 				}			
 					$tbl .= '</table>';
 					echo $tbl; 
 	
 		}
+		
+		public static function prFollowerlist($string){
+				echo '<table border="1"><tr>';
+				$i = 0;
+				foreach(self::$followers_labels as $labels){					
+					echo '<th>' . self::$followers_labels[$i] . '</th>';
+					$i++;
+				}
+					foreach($string[0] as $items){					
+					$tbl .= '<tr>';
+					$tbl .= '<td>' . $items['name'] .'</td>';
+					$tbl .= '<td>' . $items['screen_name'] . '</td>';
+					$tbl .= '</tr>';
+				}			
+					$tbl .= '</table>';
+					echo $tbl; 
+				
+			}		
+		
 		}
 
 ?>
