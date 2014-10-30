@@ -48,9 +48,44 @@ $string = json_decode($twitter->setGetfield($getfield)
 	->buildOauth($url, $requestMethod)
 	->performRequest(),$assoc = TRUE);
 	
-	
-	
-html_table::prFollowerlist($string);
-html_table::prTimeline($getfield, $string);
+//home timeline
+$url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
+$requestMethod = "GET";
+	if (isset($_GET['user']))  {
+		$user = $_GET['user'];
+	}else {$user  = "Delacruz1021";
+		}
+	if (isset($_GET['count'])) {
+			$user = $_GET['count'];
+	}else {$count = 20;
+			}
+$getfield = "?screen_name=$user&count=$count";
+$twitter = new TwitterAPIExchange($settings);
+$string = json_decode($twitter->setGetfield($getfield)
+	->buildOauth($url, $requestMethod)
+	->performRequest(),$assoc = TRUE);	
+
+// POST
+$url = "https://api.twitter.com/1.1/statuses/update.json";
+$requestMethod = "POST";
+	if (isset($_GET['user']))  {
+		$user = $_GET['user'];
+	}else {$user  = "Delacruz1021";
+		}
+	if (isset($_GET['count'])) {
+			$user = $_GET['count'];
+	}else {$count = 20;
+			}
+$getfield = "?screen_name=$user&count=$count";
+$twitter = new TwitterAPIExchange($settings);
+$string = json_decode($twitter->setGetfield($getfield)
+	->buildOauth($url, $requestMethod)
+	->performRequest(),$assoc = TRUE);	
+
+html_table::prPoststatus($string, "posted to twitter");	
+//html_table::prFollowerlist($string);
+//html_table::prTimeline($getfield, $string);
+//html_table::prHometimeline($getfield, $string);
+
 										  
 ?>										  

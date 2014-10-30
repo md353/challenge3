@@ -7,7 +7,7 @@
 
 //**********************************************************************************//
 //	Created a class to create & print a table from 									//
-//  the information extracted off twitter									//
+//  the information extracted off twitter											//
 //**********************************************************************************//
 	
 	
@@ -15,6 +15,8 @@
 
 		public static $timeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];
 		public static $followers_labels = ['Name','Screen name'];
+		public static $Hometimeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];
+		public static $post_labels = ['Posted On','Post','Screen Name'];
 		
 		public static function prTimeline($getfield, $string){
 
@@ -55,8 +57,40 @@
 					$tbl .= '</table>';
 					echo $tbl; 
 				
-			}		
-		
-		}
+			}
+		public static function prHometimeline($getfield, $string){
 
+				echo '<table border="1"><tr>';
+				$i = 0;
+				foreach(self::$Hometimeline_labels as $label){					
+					echo '<th>' . self::$Hometimeline_labels[$i] . '</th>';
+					$i++;
+				}
+					foreach($string as $items){					
+					$tbl .= '<tr>';
+					$tbl .= '<td>' . $items['created_at'] . '</td>';
+					$tbl .= '<td>' . $items['text'] . '</td>';
+					$tbl .= '<td>' . $items['user']['name'] . '</td>';
+					$tbl .= '<td>' . $items['user']['screen_name'] . '</td>';
+					$tbl .= '<td>' . $items['user']['followers_count'] . '</td>';
+					$tbl .= '<td>' . $items['user']['friends_count'] . '</td>';
+					$tbl .= '</tr>';
+				}			
+					$tbl .= '</table>';
+					echo $tbl; 
+	
+		}		
+		
+				public static function prPoststatus($string){
+
+				if (!empty($string))
+    		{
+    			
+				$postfields = array('status' => 'Using PHP program to tweet!!');
+				
+    			echo '<h3>posting works</h3>';
+			}
+
+		}
+		}
 ?>
