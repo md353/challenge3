@@ -42,22 +42,17 @@
 		}
 		
 		public static function prFollowerlist($string){
-				echo '<table border="1"><tr>';
-				$i = 0;
-				foreach(self::$followers_labels as $labels){					
-					echo '<th>' . self::$followers_labels[$i] . '</th>';
-					$i++;
-				}
-					foreach($string[0] as $items){					
-					$tbl .= '<tr>';
-					$tbl .= '<td>' . $items['name'] .'</td>';
-					$tbl .= '<td>' . $items['screen_name'] . '</td>';
+			echo '<table border = "1"><tr>';
+				echo '<th> Names </th>';
+				echo '<th> Screen Names </th>';
+				foreach($string['users'] as $item){
+					$tbl = '<tr><td>' . $item['name'] . '</td>';
+					$tbl .= '<td>' . $item['screen_name'] . '</td>';
 					$tbl .= '</tr>';
-				}			
-					$tbl .= '</table>';
-					echo $tbl; 
-				
-			}
+				}
+				$tbl .= '</table>';
+				echo $tbl;			
+		}
 		public static function prHometimeline($getfield, $string){
 
 				echo '<table border="1"><tr>';
@@ -82,13 +77,11 @@
 		}		
 		
 				public static function prPoststatus($string){
-
 				if (!empty($string))
     		{
-    			
-				$postfields = array('status' => 'Using PHP program to tweet!!');
-				
-    			echo '<h3>posting works</h3>';
+    			//$postfields = array('status' => 'Using PHP program to tweet!!');
+    			echo '<h3> posting works!! </h3>';
+    			echo '<h3> posting Tweet!! </h3>';
 			}
 
 		}

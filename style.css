@@ -1,0 +1,22 @@
+#accordion{
+    width: 1900px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#accordion h2{
+    font-size: 14pt;
+    margin: 0px;
+    padding: 10px;
+    background: #1E90FF;
+    border-bottom: 1px solid #ddd;
+}
+#accordion li div.content{
+    display: none;
+    padding: 10px;
+    background: #808080;
+    border: 1px solid #ddd;
+}
+#accordion li:hover div.content{
+    display: inherit;
+}
